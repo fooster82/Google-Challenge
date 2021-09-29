@@ -14,7 +14,7 @@ app.post('/', (req,res) => {
     let choice = req.body.searchterm;
     console.log(choice);
     console.log(typeof(choice))
-    res.json({message: "working"})
+    // res.json({message: "working"})
     if (choice === "hello"){
         console.log(2342342)
     }
@@ -23,13 +23,16 @@ app.post('/', (req,res) => {
             res.json(search.cat)
             break;
         case"dog":
+            res.json(search.dog)
             break;
         case"coffee":
+            res.json(search.coffee)
             break;
         case'hello':
-            console.log(4)
+            res.json(search.hello)
             break;
         case"chicken":
+            res.json(search.chicken)
             break;
 
         default:
