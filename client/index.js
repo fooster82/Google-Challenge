@@ -28,7 +28,8 @@ const searchform = document.querySelector('#Searchsearch');
 searchform.addEventListener('submit', (e) => {
     e.preventDefault();
     searchterm = e.target.query.value;  
-
+    let searchResults = document.querySelector('.searchresults');
+    searchResults.innerHTML = "";
     fetch('http://localhost:3000/', {
             method:"POST",
             body: JSON.stringify({searchterm: searchterm}),
