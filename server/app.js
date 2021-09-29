@@ -4,7 +4,7 @@ const cors = require('cors')
 const bodyParser =require('body-parser')
 const fetch = require('node-fetch')
 const search = require('./search.json')
-const { checkPrimeSync } = require('crypto')
+
 const app = express();
 const key = "AIzaSyDGxjb37qHVXzvLRNCqe3ibebG6kgt_Xcg";
 const engineId = "3a3f3266232d4c34b"
@@ -15,16 +15,7 @@ app.use(cors());
 async function googleAPI(searchTerm){
     let url =`https://www.googleapis.com/customsearch/v1?q=${searchTerm}&cx=${engineId}&key=${key}`;
     console.log(url);
-//     fetch(url).then(response=> response.json()).then(data=> {console.log(data);
-//     }).catch(error=>{
-//    //handle error here
-// });
-    // fetch(url)
-    // .then(response => response.json())
-    // // .then(data => console.log(data))
-    // .then(data => processData(data))
-    // .then(searchResults => return(searchResults))
-    // .catch(err => console.warn(err))
+
 
     try {
         let resp = await fetch(url);
@@ -37,11 +28,8 @@ async function googleAPI(searchTerm){
         console.warn(err);
     }
 
-    
-    // console.log(data)
-//         .then(data => processData(data))
-
 }
+
 
 
 
@@ -50,10 +38,12 @@ app.post('/', async (req,res) => {
     console.log(choice);
     console.log(typeof(choice))
     // res.json({message: "working"})
-    // search(choice);
+ 
     toSend = await googleAPI(choice);
     console.log(toSend);
     res.json(toSend);
+
+
     // switch(choice){
     //     case"cat":
     //         res.json(search.cat)
@@ -86,12 +76,12 @@ function processData(data){
         let link = data.items[a]['link'];
         searchResults[a] = {"title": title, "link": link}
     }
-    // console.log(searchResults)
+    
     return searchResults;
 }
 
-// async function decode(req) {
-//     let decoded = await (req => req.json())
-//     console.log(req);
-// }
+
 module.exports = app;
+
+
+// https://www.googleapis.com/customsearch/v1?q=beer&cx=3a3f3266232d4c34b&key=AIzaSyDGxjb37qHVXzvLRNCqe3ibebG6kgt_Xcg
