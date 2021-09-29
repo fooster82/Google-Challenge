@@ -9,10 +9,43 @@
     <title>Noogle</title>
 </head>
 <body>
-    <div class="container">
-        <div>
-            <img src="google2.0.0.jpg" alt="noogle logo" width="400" height="266" id='frontpage'>
-            <div id='buttons'>
+    <div id="homePage">
+        
+        <div class="container">
+            <div>
+                <img src="google2.0.0.jpg" alt="noogle logo" width="400" height="266" id='frontpage'>
+                <div id='buttons'>
+                    <form id="search"> 
+                        <input type="search" id="query" name="q" placeholder="Search...">
+                        <input type="submit" value="Search">
+                        <form action="" id='randPage'>
+                            <button>Random Search</button>
+                        </form>
+                    </form>
+                </div>
+            </div>
+            <!-- <div>
+                <form id="search"> 
+                    <input type="search" id="query" name="q" placeholder="Search...">
+                    <button>Search</button>
+                </form>
+            </div> -->
+            <!-- <div>
+                <form action="">
+                    <button>Random Search</button>
+                </form>
+            </div> -->
+        </div>
+    </div>
+
+
+    <div id="searchPage">
+        <nav class='goognav'>
+            <div>
+                <a href="index.html"><img src="google2.0.0.jpg" alt="noogle logo" width="200" height="133"></a>
+    
+            </div>
+            <div class='searchbuttons'>
                 <form id="search"> 
                     <input type="search" id="query" name="q" placeholder="Search...">
                     <button>Search</button>
@@ -21,23 +54,39 @@
                     </form>
                 </form>
             </div>
-        </div>
-        <!-- <div>
+        </nav>
+    
+        <!-- <div id='buttonsSearchPage'>
             <form id="search"> 
                 <input type="search" id="query" name="q" placeholder="Search...">
                 <button>Search</button>
+                <form action="" id='randPage'>
+                    <button>Random Search</button>
+                </form>
             </form>
         </div> -->
-        <!-- <div>
-            <form action="">
-                <button>Random Search</button>
-            </form>
-        </div> -->
-    </div>
+        <div class='searchresults'>
 
+
+            
+            <p id='0'></p>
+            <p id="1"></p>
+            <p id="2"></p>
+            <p id="3"></p>
+            <p id="4"></p>
+            <p id="5"></p>
+            <p id='6'></p>
+            <p id="7"></p>
+            <p id="8"></p>
+            <p id="9"></p>
+
+
+    
+        </div>
+        
+    </div>
     <div class="footer">
         <p id='footertext'>&#169 NOOGLE</p>
-    </div>
-
+    </div>    
 </body>
 </html>

@@ -77,3 +77,7 @@ img {
     min-width: 100%;
     min-height: 2em;
 }
+
+#searchPage{
+    display: none;
+}
