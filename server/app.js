@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser')
-
+const search = require('./search.json')
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -20,6 +20,7 @@ app.post('/', (req,res) => {
     }
     switch(choice){
         case"cat":
+            res.json(search.cat)
             break;
         case"dog":
             break;
@@ -38,6 +39,8 @@ app.post('/', (req,res) => {
     
 })
 
+console.log(search.hello[7].title)
+console.log(search.hello)
 
 // async function decode(req) {
 //     let decoded = await (req => req.json())
