@@ -4,7 +4,6 @@ const cors = require('cors')
 const bodyParser =require('body-parser')
 const fetch = require('node-fetch')
 const search = require('./search.json')
-
 const app = express();
 const key = "AIzaSyDGxjb37qHVXzvLRNCqe3ibebG6kgt_Xcg";
 const engineId = "3a3f3266232d4c34b"
@@ -21,7 +20,6 @@ async function googleAPI(searchTerm){
         let resp = await fetch(url);
         let data = await resp.json();
         let searches = await processData(data);
-        // console.log(searches)
         return searches
 
     } catch(err){
@@ -39,11 +37,15 @@ app.post('/', async (req,res) => {
     console.log(typeof(choice))
     // res.json({message: "working"})
  
+    // // comment the section below out when enabling the hard-coded results:
     toSend = await googleAPI(choice);
     console.log(toSend);
     res.json(toSend);
 
 
+
+    // // Uncomment this code to enable the hard-coded results stored in search.js
+    // // Needed when googleAPI has reached its daily query limit.
     // switch(choice){
     //     case"cat":
     //         res.json(search.cat)
@@ -84,4 +86,3 @@ function processData(data){
 module.exports = app;
 
 
-// https://www.googleapis.com/customsearch/v1?q=beer&cx=3a3f3266232d4c34b&key=AIzaSyDGxjb37qHVXzvLRNCqe3ibebG6kgt_Xcg
